@@ -77,7 +77,7 @@ def main(*args):
         (status,output) = add_rds_tag(resource_name,'comment',comment)
 
     if status != 0:
-       print "ERROR in addign tags for " + db_identifier
+       print "ERROR in adding tags for " + db_identifier
        print output
     else:
        print output

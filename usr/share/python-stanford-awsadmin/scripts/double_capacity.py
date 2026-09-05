@@ -10,7 +10,7 @@ This script doubles the capacity of an auto-scaling group.
 Options:
          -c, --config_name=<value>
            An INI section in /etc/aws/aws-ami.conf file which contains
-           values neeeed to launch the instance
+           values needed to launch the instance
          -h / --help
             Print this message and exit
                 
@@ -76,7 +76,7 @@ def main(*args):
     except ConfigParser.NoOptionError, e:
         sys_exit(1,e)
 
-    # Scale out to keep service capcity while we recycle instances
+    # Scale out to keep service capacity while we recycle instances
     double_capacity = str(int(desired_capacity) * 2)
     set_capacity_cmd = ' '.join(['as-set-desired-capacity',
                                   auto_scaling_group_name,

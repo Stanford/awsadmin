@@ -13,7 +13,7 @@ new one when old one is killed, with the latest launch configuration.
 Options:
          -c, --config_name=<value>
            An INI section in /etc/aws/aws-ami.conf file which contains
-           values neeeed to launch the instance
+           values needed to launch the instance
          -h / --help
             Print this message and exit
                 

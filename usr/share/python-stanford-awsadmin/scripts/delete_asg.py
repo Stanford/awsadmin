@@ -6,8 +6,8 @@
 """Delete a specified auto-scaling group
 
 This script deletes an auto-scaling group. It forces the termination of 
-the running instances in the grroup, deletes the auto-scaling group, and then
-delete the launch configuration.
+the running instances in the group, deletes the auto-scaling group, and then
+deletes the launch configuration.
                 
 """
 
@@ -32,7 +32,7 @@ def short_desc():
     return "Delete an auto-scaling group and terminate instances in the group."
 
 def main(*args):
-    """ Delete an auto-scaling group, launch configuration and temrmiate
+    """ Delete an auto-scaling group, launch configuration and terminate
         AWS EC2 instances in the group.
     """
 
@@ -50,7 +50,7 @@ def main(*args):
     config = ConfigParser.SafeConfigParser()
     config_file = awsadmin_cfg.AWS_CONF_DIR + '/' + config_name
     if not config.read([config_file]):
-        print "Configure file %s doesn't exist" % config_file
+        print "Configuration file %s doesn't exist" % config_file
         sys.exit(1)
     if not config.has_section(config_name):
         print "No such configuration section: %s" % config_name
@@ -72,7 +72,7 @@ def main(*args):
 
     # Delete the auto-group without asking. 
     if not force:
-        msg = """We will not delete an running auto-scaling group by default.
+        msg = """We will not delete a running auto-scaling group by default.
 Please use --force to force a delete. It will terminate all
 running instances, and delete auto scaling configuration."""
         print msg

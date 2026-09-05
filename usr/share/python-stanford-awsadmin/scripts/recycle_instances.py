@@ -13,7 +13,7 @@ then resets the capacity to the original setting.
 Options:
          -c, --config_name=<value>
            An INI section in /etc/aws/aws-ami.conf file which contains
-           values neeeed to launch the instance
+           values needed to launch the instance
          -h / --help
             Print this message and exit
                 
@@ -58,7 +58,7 @@ def main(*args):
     config = ConfigParser.SafeConfigParser()
     config_file = awsadmin_cfg.AWS_CONF_DIR + '/' + config_name
     if not config.read([config_file]):
-        print "Configure file %s doesn't exist" % config_file
+        print "Configuration file %s doesn't exist" % config_file
         sys.exit(1)
     if not config.has_section(config_name):
         print "No such configuration section: %s" % config_name
@@ -91,7 +91,7 @@ def main(*args):
     else:
        old_instances = instance_pat.findall(output)     
 
-    # Scale out to keep service capcity while we recycle instances
+    # Scale out to keep service capacity while we recycle instances
     double_capacity = str(int(desired_capacity) * 2)
     set_capacity_cmd = ' '.join(['as-set-desired-capacity',
                                   auto_scaling_group_name,
@@ -128,7 +128,7 @@ def main(*args):
     sys.stdout.flush()
     (status,output) = commands.getstatusoutput(lb_cmd)
 
-    # Reset capacitay in 5 minuites from now
+    # Reset capacity in 5 minutes from now
     start_time = time.strftime("%Y-%m-%dT%TZ", time.gmtime(time.time() + 300))
     as_cmd = ' '.join(['as-put-scheduled-update-group-action reset-capacity',
                        '-g', auto_scaling_group_name,
