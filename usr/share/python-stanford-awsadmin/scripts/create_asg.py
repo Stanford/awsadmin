@@ -45,7 +45,7 @@ def main(*args):
     default_file = awsadmin_cfg.AWS_CONF_DIR + '/default'
     config_file = awsadmin_cfg.AWS_CONF_DIR + '/' + config_name
     if not config.read([default_file, config_file]):
-        print "Configure file %s doesn't exist" % config_file
+        print "Configuration file %s doesn't exist" % config_file
         sys.exit(1)
     if not config.has_section(config_name):
         print "No such configuration section: %s" % config_name

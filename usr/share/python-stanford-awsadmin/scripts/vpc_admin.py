@@ -41,7 +41,7 @@ def remove_vpc(config_name,config):
     return commands.getstatusoutput(as_cmd)
 
 def show_vpc(config_name,config):
-    """ Describle VPC 
+    """ Describe VPC 
     """
     vpcid   = config.get(config_name, 'vpcid')
     aws_cmd = ' '.join(['aws ec2 describe-vpcs','--vpc-id', vpcid])
@@ -66,7 +66,7 @@ def main(*args):
     config = ConfigParser.SafeConfigParser()
     config_file = awsadmin_cfg.AMI_CONF_DIR + '/' + args.config_name
     if not config.read(config_file):
-        print "Configure file %s doesn't exist" % config_file
+        print "Configuration file %s doesn't exist" % config_file
         sys.exit(1)
     if not config.has_section(args.config_name):
         print "No such configuration section: %s" % args.config_name

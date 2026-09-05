@@ -10,8 +10,8 @@ This script reads auto-scaling group's configuration from
 updates the auto-scaling group to use the configuration for new EC2 
 instances going forward. 
 
-Optionally, you can pass in ec2 type to change EC2's intance type. All
-other launch confiurations will be the same as those in aws-ami.conf
+Optionally, you can pass in ec2 type to change EC2's instance type. All
+other launch configurations will be the same as those in aws-ami.conf
 file. It can be used for temporary test. If you want to make it
 permanent, change the aws-ami.conf instead. A temporary launch 
 configuration will be created which you can delete later if it is no
@@ -39,7 +39,7 @@ def short_desc():
     return "Create new launch configuration and update an auto-scaling group."
 
 def lc_exist(config_name):
-    """ Check if a launch config exist 
+    """ Check if a launch config exists 
     """
 
     m = re.compile(config_name)
@@ -48,7 +48,7 @@ def lc_exist(config_name):
     return  m.search(output)
 
 def main(*args):
-    """ Create new launch configuation and update an auto-scaling group's 
+    """ Create new launch configuration and update an auto-scaling group's 
         configuration.
     """
 
@@ -66,7 +66,7 @@ def main(*args):
     config = ConfigParser.SafeConfigParser()
     config_file = awsadmin_cfg.AWS_CONF_DIR + '/' + config_name
     if not config.read([config_file]):
-        print "Configure file %s doesn't exist" % config_file
+        print "Configuration file %s doesn't exist" % config_file
         sys.exit(1)
     if not config.has_section(config_name):
         print "No such configuration section: %s" % config_name

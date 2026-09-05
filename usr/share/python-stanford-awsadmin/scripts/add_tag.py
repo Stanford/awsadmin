@@ -11,9 +11,9 @@ Options:
          -i / --identifier=<value>
              id of an instance to be tagged. 
          -i / --name=<value>
-             name of the intance, e.g. a hostname.
+             name of the instance, e.g. a hostname.
          -t / --type
-              type of the tag - e..g  ec2, rds 
+              type of the tag - e.g.  ec2, rds 
          -c / --comment=<value>
          -p / --psa-core=<value>
              format example: "IDG-WEB". 
@@ -85,7 +85,7 @@ def main(*args):
         sys.exit(1)
 
     if not type or type not in ('ec2', 'rds'):
-        print "Type is require. Select ec2 or rds."
+        print "Type is required. Select ec2 or rds."
         sys.exit(1)
 
     resource_name = identifier
@@ -102,7 +102,7 @@ def main(*args):
         (status,output) = add_tag(type,resource_name,'name',name)
 
     if status != 0:
-       print "ERROR in addign tags for " + identifier
+       print "ERROR in adding tags for " + identifier
        print output
     else:
        print output

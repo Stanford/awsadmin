@@ -51,7 +51,7 @@ def remove(config_name,config):
     return commands.getstatusoutput(as_cmd)
 
 def show(config_name,config):
-    """ Describle VPC subnet
+    """ Describe VPC subnet
     """
     vpcid   = config.get(config_name, 'vpcid')
     filters = 'Name=vpc-id,Values=' + vpcid
@@ -79,7 +79,7 @@ def main(*args):
     config = ConfigParser.SafeConfigParser()
     config_file = awsadmin_cfg.AMI_CONF_DIR + '/' + args.config_name
     if not config.read(config_file):
-        print "Configure file %s doesn't exist" % config_file
+        print "Configuration file %s doesn't exist" % config_file
         sys.exit(1)
     if not config.has_section(args.config_name):
         print "No such configuration section: %s" % args.config_name
